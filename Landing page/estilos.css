@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Urbanist', sans-serif;
+}
+
+.container{
+
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.hero{
+    background-image: linear-gradient(to top, #1e3c72 0%, #1e3c72 1%, #2a5298 100%);
+    color: #fff;
+    display: grid;
+    grid-template-rows: max-content  1fr; /*Se crea fila de el maximo contenido y una fraccion lo que hace que el max contenido  sea el nav y el body*/
+    grid-template-areas: 
+    "nav"
+    "content";
+    min-height: 100vh;
+}
+
+
+.nav{
+    grid-area: nav;
+    display: grid;
+    justify-content: space-between;/**Colocar en las esquinas**/
+    grid-auto-flow: column;
+    gap: 1em; /*Espacios*/
+    align-items: center;
+    height: 90px;
+}
+
+.nav_link{
+    color:#fff;
+    text-decoration: none;
+}
+
+.nav_list{
+    list-style: none;
+    display: grid;
+    grid-auto-flow: column;
+    gap: 1em;
+}
+
+.nav_logo{
+    font-size: 1.8rem;
+    font-weight: 300;
+}
+
+.nav_menu{
+    display: none;
+}
+
+
+.nav_icon{
+    width: 30px;
+}
+
+
+
+.hero_main{
+    grid-area: content;
+    display: grid;
+    gap: 2em;
+    /*grid-template-columns: repeat(auto-fit,minmax(300px, 1fr));
+    /*Crear columnas dinamica mente y el minmax lo que hace es que la columna minima sea de 300 y sino sea de 1fr*/
+    grid-template-columns: 1fr 1fr;
+    padding-bottom: 180px;
+    align-items: center; /*Centrar verticalmente*/
+}
+
+
+.hero_waves{
+    grid-area: content;
+    align-self: end;
+}
+
+.hero_title{
+    font-size: 2.6rem;
+    letter-spacing:  2px; ;
+}
+
+.hero_subtitle{
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 300; /*Peso o grueso de la letra*/
+}
+
+.hero_cta{
+    color: #fff;
+    text-decoration: none;
+    padding: 15px 60px;
+    border: 1px solid ;
+    border-radius: 6px;
+    display: inline-block;
+    font-weight: 500;
+    transition: background-color .3s;
+}
+
+.hero_cta:hover{
+    background-color: #fff;
+    color:#1e3c72;
+
+}
+
+
+.hero_img{
+    width: 100%;
+}
+
+@media (max-width:800px){
+    
+    .nav_list{
+        display: none;
+    }
+
+    .nav_menu{
+        display: block;
+    }
+
+    .hero_main{
+        grid-template-columns: 1fr;
+        grid-template-rows: max-content max-content;
+        text-align: center;
+    }
+
+    .hero_picture{
+        grid-row: 1/2;
+    }
+
+    .hero_img{
+        max-width: 500px;
+        display: block;
+        margin: 0 auto;
+    }
+}
